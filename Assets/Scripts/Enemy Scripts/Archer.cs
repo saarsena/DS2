@@ -7,7 +7,7 @@ public class Archer : Enemy
     private float health = 150f;
     private float mana = 0;
     private float armorValue = 0;
-    private float attackValue = 10f;
+    private float attackValue = 5f;
     private int numberOfAttacks = 2;
     private int str = 12;
     private int dex = 16;

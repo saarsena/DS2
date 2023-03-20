@@ -1,27 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Abomination : Enemy
 {
-    private float health = 300f;
-    private float mana = 500f;
-    private float armorValue = 0;
-    private float attackValue = 5f;
-    private int numberOfAttacks = 1;
-    private int str = 10;
-    private int dex = 10;
-    private int con = 10;
-    private int intel = 10;
-    private int wis = 10;
-    public int charis = 10;
+    float randomFloat;
+    private float health;
+    private float mana = 0f;
+    private float armorValue = 17f;
+    private float attackValue = 9f;
+    private int numberOfAttacks = 3;
+    private int str = 21;
+    private int dex = 9;
+    private int con = 15;
+    private int intel = 18;
+    private int wis = 15;
+    public int charis = 18;
     public bool isEnemy = true;
 
     public override float Health
     {
         get
         {
-            return health;
+            return health = (18 * randomFloat) + 36;
         }
         set
         {
@@ -107,5 +109,10 @@ public class Abomination : Enemy
     {
         get { return isEnemy; }
         set { isEnemy = value; }
+    }
+    private void Start()
+    {
+        
+        randomFloat = Random.Range(0f, 10f);
     }
 }
