@@ -4,24 +4,25 @@ using UnityEngine;
 
 public class Blob : Enemy
 {
-    private float health = 300f;
-    private float mana = 500f;
-    private float armorValue = 0;
+    private float randomFloat;
+    private float health;
+    private float mana = 0f;
+    private float armorValue = 7;
     private float attackValue = 5f;
     private int numberOfAttacks = 1;
-    private int str = 10;
-    private int dex = 10;
-    private int con = 10;
-    private int intel = 10;
-    private int wis = 10;
-    private int charis = 10;
+    private int str = 16;
+    private int dex = 5;
+    private int con = 16;
+    private int intel = 1;
+    private int wis = 6;
+    private int charis = 1;
     public bool isEnemy = true;
 
     public override float Health
     {
         get
         {
-            return health;
+            return health = (10 * randomFloat) + 30;
         }
         set
         {
@@ -107,5 +108,9 @@ public class Blob : Enemy
     {
         get { return isEnemy; }
         set { isEnemy = value; }
+    }
+    private void Start()
+    {
+        randomFloat = Random.Range(1f, 10f);
     }
 }

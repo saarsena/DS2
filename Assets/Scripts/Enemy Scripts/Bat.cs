@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class Bat : Enemy
 {
-    private float health = 50f;
+    private float health = 3f;
     private float mana = 0f;
-    private float armorValue = 0;
-    private float attackValue = 5f;
+    private float armorValue = 12;
+    private float attackValue = 0f;
     private int numberOfAttacks = 1;
-    private int str = 10;
-    private int dex = 10;
-    private int con = 10;
-    private int intel = 10;
-    private int wis = 10;
-    private int charis = 10;
+    private int str = 2;
+    private int dex = 15;
+    private int con = 8;
+    private int intel = 2;
+    private int wis = 12;
+    private int charis = 4;
     public bool isEnemy = true;
 
     public override float Health
