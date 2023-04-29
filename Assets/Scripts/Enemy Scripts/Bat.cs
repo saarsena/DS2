@@ -9,69 +9,40 @@ public class Bat : Enemy
     private float armorValue = 12;
     private float attackValue = 0f;
     private int numberOfAttacks = 1;
-    private int str = 2;
+    private int str = 23;
     private int dex = 15;
     private int con = 8;
     private int intel = 2;
     private int wis = 12;
     private int charis = 4;
     public bool isEnemy = true;
+    Bonuses abilityBonus = new Bonuses();
+    private int tempAbilityBonus;
 
     public override float Health
     {
-        get
-        {
-            return health;
-        }
-        set
-        {
-            health = value;
-        }
+        get { return health; }
+        set { health = value; }
     }
     public override float Mana
     {
-        get
-        {
-            return mana;
-        }
-        set
-        {
-            mana = value;
-        }
+        get { return mana; }
+        set { mana = value; }
     }
     public override float ArmorValue
     {
-        get
-        {
-            return armorValue;
-        }
-        set
-        {
-            armorValue = value;
-        }
+        get { return armorValue; }
+        set { armorValue = value; }
     }
     public override float AttackValue
     {
-        get
-        {
-            return attackValue;
-        }
-        set
-        {
-            attackValue = value;
-        }
+        get { return attackValue; }
+        set { attackValue = value; }
     }
-
     public override int NumberOfAttacks
     {
-        get
-        {
-            return numberOfAttacks;
-        }
-        set
-        {
-            numberOfAttacks = value;
-        }
+        get { return numberOfAttacks; }
+        set { numberOfAttacks = value; }
     }
     public override int Str
     {
@@ -107,5 +78,14 @@ public class Bat : Enemy
     {
         get { return isEnemy; }
         set { isEnemy = value; }
+    }
+    public override int AbilityModifier
+    {
+        get { return tempAbilityBonus; }
+        set { tempAbilityBonus = value; }
+    }
+    private void Start()
+    {
+        tempAbilityBonus = abilityBonus.GetAbilityBonus(Str);
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Abomination : Enemy
 {
-    float randomFloat;
+    private int randomDie;
     private float health;
     private float mana = 0f;
     private float armorValue = 17f;
@@ -18,62 +18,33 @@ public class Abomination : Enemy
     private int wis = 15;
     public int charis = 18;
     public bool isEnemy = true;
+    Bonuses abilityBonus = new Bonuses();
+    private int tempAbilityBonus;
 
     public override float Health
     {
-        get
-        {
-            return health = (18 * randomFloat) + 36;
-        }
-        set
-        {
-            health = value;
-        }
+        get { return health = 18 * randomDie + 36; }
+        set { health = value; }
     }
     public override float Mana
     {
-        get
-        {
-            return mana;
-        }
-        set
-        {
-            mana = value;
-        }
+        get { return mana; }
+        set { mana = value; }
     }
     public override float ArmorValue
     {
-        get
-        {
-            return armorValue;
-        }
-        set
-        {
-            armorValue = value;
-        }
+        get { return armorValue; }
+        set { armorValue = value; }
     }
     public override float AttackValue
     {
-        get
-        {
-            return attackValue;
-        }
-        set
-        {
-            attackValue = value;
-        }
+        get { return attackValue; }
+        set { attackValue = value; }
     }
-
     public override int NumberOfAttacks
     {
-        get
-        {
-            return numberOfAttacks;
-        }
-        set
-        {
-            numberOfAttacks = value;
-        }
+        get { return numberOfAttacks; }
+        set { numberOfAttacks = value; }
     }
     public override int Str
     {
@@ -110,9 +81,14 @@ public class Abomination : Enemy
         get { return isEnemy; }
         set { isEnemy = value; }
     }
+    public override int AbilityModifier
+    {
+        get { return tempAbilityBonus; }
+        set { tempAbilityBonus = value; }
+    }
     private void Start()
     {
-        
-        randomFloat = Random.Range(0f, 10f);
+        tempAbilityBonus =  abilityBonus.GetAbilityBonus(Str);
+        randomDie = Random.Range(0, 10);
     }
 }

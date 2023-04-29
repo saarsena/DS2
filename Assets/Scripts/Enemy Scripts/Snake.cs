@@ -4,74 +4,46 @@ using UnityEngine;
 
 public class Snake : Enemy
 {
-    private float health = 300f;
-    private float mana = 500f;
-    private float armorValue = 0;
-    private float attackValue = 5f;
-    private int numberOfAttacks = 1;
+    private int randomDie;
+    private float health;
+    private float mana;
+    private float armorValue = 14;
+    private float attackValue;
+    private int numberOfAttacks = 2;
     private int str = 10;
-    private int dex = 10;
-    private int con = 10;
-    private int intel = 10;
+    private int dex = 18;
+    private int con = 13;
+    private int intel = 2;
     private int wis = 10;
-    public int charis = 10;
+    public int charis = 3;
     public bool isEnemy = true;
+    Bonuses abilityBonus = new Bonuses();
+    private int tempAbilityBonus;
 
     public override float Health
     {
-        get
-        {
-            return health;
-        }
-        set
-        {
-            health = value;
-        }
+        get { return health = 2 * randomDie + 2; }
+        set { health = value; }
     }
     public override float Mana
     {
-        get
-        {
-            return mana;
-        }
-        set
-        {
-            mana = value;
-        }
+        get { return mana; }
+        set { mana = value; }
     }
     public override float ArmorValue
     {
-        get
-        {
-            return armorValue;
-        }
-        set
-        {
-            armorValue = value;
-        }
+        get { return armorValue; }
+        set { armorValue = value; }
     }
     public override float AttackValue
     {
-        get
-        {
-            return attackValue;
-        }
-        set
-        {
-            attackValue = value;
-        }
+        get { return attackValue; }
+        set { attackValue = value; }
     }
-
     public override int NumberOfAttacks
     {
-        get
-        {
-            return numberOfAttacks;
-        }
-        set
-        {
-            numberOfAttacks = value;
-        }
+        get { return numberOfAttacks; }
+        set { numberOfAttacks = value; }
     }
     public override int Str
     {
@@ -107,5 +79,15 @@ public class Snake : Enemy
     {
         get { return isEnemy; }
         set { isEnemy = value; }
+    }
+    public override int AbilityModifier
+    {
+        get { return tempAbilityBonus; }
+        set { tempAbilityBonus = value; }
+    }
+    private void Start()
+    {
+        tempAbilityBonus = abilityBonus.GetAbilityBonus(Str);
+        randomDie = Random.Range(1, 8);
     }
 }

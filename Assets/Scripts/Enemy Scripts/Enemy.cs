@@ -16,4 +16,5 @@ public abstract class Enemy : MonoBehaviour
     abstract public int Wis { get; set; }
     abstract public int Cha { get; set; }
     abstract public bool IsEnemy { get; set; }
+    abstract public int AbilityModifier { get; set; }
 }

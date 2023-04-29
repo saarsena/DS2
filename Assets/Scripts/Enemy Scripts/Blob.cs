@@ -17,62 +17,33 @@ public class Blob : Enemy
     private int wis = 6;
     private int charis = 1;
     public bool isEnemy = true;
+    Bonuses abilityBonus = new Bonuses();
+    private int tempAbilityBonus;
 
     public override float Health
     {
-        get
-        {
-            return health = (10 * randomFloat) + 30;
-        }
-        set
-        {
-            health = value;
-        }
+        get { return health = (10 * randomFloat) + 30; }
+        set { health = value; }
     }
     public override float Mana
     {
-        get
-        {
-            return mana;
-        }
-        set
-        {
-            mana = value;
-        }
+        get { return mana; }
+        set { mana = value; }
     }
     public override float ArmorValue
     {
-        get
-        {
-            return armorValue;
-        }
-        set
-        {
-            armorValue = value;
-        }
+        get { return armorValue; }
+        set { armorValue = value; }
     }
     public override float AttackValue
     {
-        get
-        {
-            return attackValue;
-        }
-        set
-        {
-            attackValue = value;
-        }
+        get { return attackValue; }
+        set { attackValue = value; }
     }
-
     public override int NumberOfAttacks
     {
-        get
-        {
-            return numberOfAttacks;
-        }
-        set
-        {
-            numberOfAttacks = value;
-        }
+        get { return numberOfAttacks; }
+        set { numberOfAttacks = value; }
     }
     public override int Str
     {
@@ -109,8 +80,14 @@ public class Blob : Enemy
         get { return isEnemy; }
         set { isEnemy = value; }
     }
+    public override int AbilityModifier
+    {
+        get { return tempAbilityBonus; }
+        set { tempAbilityBonus = value; }
+    }
     private void Start()
     {
+        tempAbilityBonus = abilityBonus.GetAbilityBonus(Str);
         randomFloat = Random.Range(1f, 10f);
     }
 }
